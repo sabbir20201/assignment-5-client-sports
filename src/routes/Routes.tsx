@@ -1,6 +1,6 @@
 import AdminHome from "@/admin/adminHome/AdminHome";
-import CreateFacility from "@/admin/createFacility.tsx/CreateFacility";
-import GetFacility from "@/admin/getFacility/GetFacility";
+import CreateFacility from "@/admin/manageFacility/CreateFacility";
+import GetAllFacility from "@/admin/manageFacility/GetAllFacility";
 import AdminLayout from "@/mainLayout/AdminLayout";
 import MainLayout from "@/mainLayout/MainLayout";
 import Cart from "@/pages/cart/Cart";
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "get-facility",
-                element: <GetFacility></GetFacility>,
+                element: <GetAllFacility></GetAllFacility>,
             }
         ]
     }
