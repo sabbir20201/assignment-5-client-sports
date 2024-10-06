@@ -29,6 +29,12 @@ export const baseApi = createApi({
         url: `/facility/${id}`
       })
     }),
+    getBookingFacility: builder.query({
+      query: () => ({
+        method: "GET",
+        url: "/bookings"
+      })
+    }),
     checkAvailability: builder.query({
       query: (date) => ({
         method: "GET",
@@ -60,4 +66,4 @@ export const baseApi = createApi({
 })
 
 
-export const { useGetSportsQuery,useDeleteFacilityMutation ,useCheckAvailabilityQuery, useBookingFacilityMutation, useGetSportsByIdQuery, useCreateFacilityMutation } = baseApi
+export const { useGetSportsQuery,useDeleteFacilityMutation ,useGetBookingFacilityQuery,useCheckAvailabilityQuery, useBookingFacilityMutation, useGetSportsByIdQuery, useCreateFacilityMutation } = baseApi
