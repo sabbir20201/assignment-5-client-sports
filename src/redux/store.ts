@@ -7,7 +7,6 @@ import registerReducer from './feature/registerSlice'
 import loginReducer from './feature/LoignSlice'
 import userReducer from './feature/UserSlice'
 import bookingReducer from './feature/BookingPayloadSlice'
-
 import storage from 'redux-persist/lib/storage';
 
 const persistUserConfig = {
