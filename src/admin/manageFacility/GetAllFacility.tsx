@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { TFacility } from "@/pages/facilityCart/facilityType";
 import toast, { Toaster } from "react-hot-toast";
+import UpdateFacility from "./UpdateFacility";
 
 
 
@@ -11,32 +12,32 @@ import toast, { Toaster } from "react-hot-toast";
 const GetAllFacility = () => {
     const [deleteFacility] = useDeleteFacilityMutation({})
 
-    const { data, isLoading,refetch } = useGetSportsQuery('')
+    const { data, isLoading, refetch } = useGetSportsQuery('')
     console.log(data);
-    if(isLoading){
+    if (isLoading) {
         return <p>loading...</p>
     }
     const handleDelete = async (_id: string) => {
         try {
-          const result = await deleteFacility(_id).unwrap()
-          if (result.data._id) {
-            toast.success('Facility deleted Successfully', { duration: 4000 })
-            refetch()
-          }
+            const result = await deleteFacility(_id).unwrap()
+            if (result.data._id) {
+                toast.success('Facility deleted Successfully', { duration: 4000 })
+                refetch()
+            }
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-      }
+    }
     return (
         <div>
-                  <Toaster position="top-right"></Toaster>
+            <Toaster position="top-right"></Toaster>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">
                         <thead>
                             <tr>
                                 <th>image</th>
-                                <th>category</th>
+                                <th></th>
                                 <th className='lg:space-x-16'><span>update</span> <span className=''>delete</span></th>
                             </tr>
                         </thead>
@@ -55,7 +56,7 @@ const GetAllFacility = () => {
                                                 </div>
                                                 <div>
                                                     <div className="font-bold">{item?.name}</div>
-                                                    <div className="text-sm opacity-50">{item.pricePerHour} BD</div>
+                                                    <div className="text-sm">Price per hour: {item.pricePerHour} BD</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -75,13 +76,13 @@ const GetAllFacility = () => {
                                                             <AlertDialogHeader>
                                                                 <AlertDialogTitle>Update your product details</AlertDialogTitle>
                                                                 <AlertDialogDescription className=" justify-center">
-                                                                    {/* <UpdateProduct id={item._id} item={item}></UpdateProduct> */}
+                                                                    <UpdateFacility id={item._id} item={item}></UpdateFacility>
                                                                 </AlertDialogDescription>
                                                             </AlertDialogHeader>
                                                             <AlertDialogFooter>
                                                                 <AlertDialogCancel>Cancel</AlertDialogCancel>
                                                                 {/* <AlertDialogAction >
-                                </AlertDialogAction> */}
+                                </AlertDialogAction>  */}
                                                             </AlertDialogFooter>
                                                         </AlertDialogContent>
                                                     </AlertDialog>

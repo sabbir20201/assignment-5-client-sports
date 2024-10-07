@@ -7,6 +7,7 @@ import React from "react";
 import { Toaster } from 'react-hot-toast'
 import { jwtDecode } from "jwt-decode";
 import { setToken, setUser } from "@/redux/feature/UserSlice";
+import { useNavigate } from "react-router-dom";
 
 type TDecodedToken = {
     _id: string;
@@ -16,6 +17,8 @@ type TDecodedToken = {
 
 const Login = () => {
     const { email, password } = useAppSelector((store) => store.login)
+    console.log('from app selecter',email);
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const [login, { data }] = useLoginMutation();
 
@@ -72,6 +75,7 @@ const Login = () => {
                     </label>
 
                     <Button className="w-full my-1 max-w-96 bg-sky-600" type="submit">Login</Button>
+                    <p>New User? <span onClick={()=> navigate('/register')} className="cursor-pointer text-sky-500 font-bold"> Login Register</span></p>
                 </form>
                 <div className="border">
                     <img className="h-full object-cover object-center" src="https://cdn.pixabay.com/photo/2021/07/21/20/11/beach-volleyball-6483905_960_720.jpg" alt="" />

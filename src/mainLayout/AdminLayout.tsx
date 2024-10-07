@@ -23,6 +23,10 @@ const items: MenuProps["items"] = [
         key: '5',
         label: <NavLink to="/admin/get-facility">Get all Product</NavLink>,
       },
+      {
+        key: '6',
+        label: <NavLink to="/admin/get-all-bookings">Get all Bookings</NavLink>,
+      },
     ]
   },
   {

@@ -6,7 +6,7 @@ const initialState = {
     password: '',
     phone: '',
     role: '',
-    address: ''
+    address: '',
 }
 const registerSlice = createSlice({
     name: 'register',

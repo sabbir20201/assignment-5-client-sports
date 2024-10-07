@@ -1,5 +1,6 @@
 import AdminHome from "@/admin/adminHome/AdminHome";
 import CreateFacility from "@/admin/manageFacility/CreateFacility";
+import GetAllBookings from "@/admin/manageFacility/GetAllBookings";
 import GetAllFacility from "@/admin/manageFacility/GetAllFacility";
 import AdminLayout from "@/mainLayout/AdminLayout";
 import MainLayout from "@/mainLayout/MainLayout";
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
             {
                 path: "get-facility",
                 element: <GetAllFacility></GetAllFacility>,
+            },
+            {
+                path: "get-all-bookings",
+                element: <GetAllBookings></GetAllBookings>,
             }
         ]
     }

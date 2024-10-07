@@ -15,7 +15,6 @@ export const baseApi = createApi({
       return headers
     }
   }),
-
   endpoints: (builder) => ({
     getSports: builder.query({
       query: () => ({
@@ -56,6 +55,13 @@ export const baseApi = createApi({
         body: newFacility
       })
     }),
+    updateFacility: builder.mutation({
+      query:({id, updatedData})=>({
+        method: "PUT",
+        url: `/facility/${id}`,
+        body: updatedData
+      })
+     }),
     deleteFacility: builder.mutation({
       query:(id: string)=>({
         method: "DELETE",
@@ -66,4 +72,4 @@ export const baseApi = createApi({
 })
 
 
-export const { useGetSportsQuery,useDeleteFacilityMutation ,useGetBookingFacilityQuery,useCheckAvailabilityQuery, useBookingFacilityMutation, useGetSportsByIdQuery, useCreateFacilityMutation } = baseApi
+export const { useGetSportsQuery,useDeleteFacilityMutation ,useUpdateFacilityMutation,useGetBookingFacilityQuery,useCheckAvailabilityQuery, useBookingFacilityMutation, useGetSportsByIdQuery, useCreateFacilityMutation } = baseApi
