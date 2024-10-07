@@ -4,11 +4,16 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import { logOut } from "@/redux/feature/UserSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  
+  const dispatch = useAppDispatch();
+  const handleLogOut = ()=>{
+      dispatch(logOut())
+  } 
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "register", path: "/register" },
@@ -16,6 +21,7 @@ const Navbar = () => {
     // { label: "cart", path: "/cart" },
     { label: "check-facility-book", path: "/book" },
     { label: "Dashboard", path: "/admin" }
+ 
   ]
 
   return (
@@ -98,7 +104,7 @@ const Navbar = () => {
           </a>
         </li>
         <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><a onClick={handleLogOut}>Logout</a></li>
       </ul>
     </div>
         </div>

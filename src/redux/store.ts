@@ -1,6 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { configureStore } from '@reduxjs/toolkit'
-import { persistStore, persistReducer } from 'redux-persist';
+import {
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist';
 // import storage from 'redux-persist/lib/storage'
 import { baseApi } from './api/baseApi'
 import registerReducer from './feature/registerSlice'
@@ -17,15 +26,19 @@ const persistedUserReducer = persistReducer(persistUserConfig, userReducer)
 
 export const store = configureStore({
     reducer: {
-   [baseApi.reducerPath]: baseApi.reducer,
-    register: registerReducer,
-    login: loginReducer,
-    user: persistedUserReducer,
-    booking: bookingReducer,
-    }, 
-    middleware: (getDefaultMiddleware) => 
-        getDefaultMiddleware({  serializableCheck: false}).concat(baseApi.middleware)
-    
+        [baseApi.reducerPath]: baseApi.reducer,
+        register: registerReducer,
+        login: loginReducer,
+        user: persistedUserReducer,
+        booking: bookingReducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }).concat(baseApi.middleware)
+
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

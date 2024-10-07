@@ -77,7 +77,7 @@ export const baseApi = createApi({
     deleteBooking: builder.mutation({
       query:(id: string)=>({
         method: "DELETE",
-        url: `/facility/${id}`,
+        url: `/bookings/${id}`,
       })
      }),
   }),

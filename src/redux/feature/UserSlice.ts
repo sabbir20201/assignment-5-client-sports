@@ -9,11 +9,11 @@ type User = {
     phone: string;
 }
 type UserAndToken = {
-    token: string;
-    user: User;
+    token: string | null;
+    user: User | null;
 
 }
-const initialState : UserAndToken= {
+const initialState: UserAndToken = {
     token: '',
     user: {
         _id: '',
@@ -32,11 +32,15 @@ const userSlice = createSlice({
             state.token = action.payload
         },
         setUser: (state, action) => {
-            state.user ={ ...action.payload}
+            state.user = { ...action.payload }
         },
+        logOut: (state) => {
+            state.token = null;
+            state.user = null
+        }
     }
 })
 
-export const {setToken, setUser} =userSlice.actions
+export const { setToken, setUser,logOut } = userSlice.actions
 export default userSlice.reducer;
 
