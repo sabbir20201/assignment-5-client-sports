@@ -41,6 +41,12 @@ export const baseApi = createApi({
         params: { date },
       })
     }),
+    getSingleUserBookings: builder.query({
+      query: () => ({
+        method: "GET",
+        url: '/bookings/user',
+      })
+    }),
     createFacility: builder.mutation({
       query: (newFacility) => ({
         method: "POST",
@@ -68,8 +74,14 @@ export const baseApi = createApi({
         url: `/facility/${id}`,
       })
      }),
+    deleteBooking: builder.mutation({
+      query:(id: string)=>({
+        method: "DELETE",
+        url: `/facility/${id}`,
+      })
+     }),
   }),
 })
 
 
-export const { useGetSportsQuery,useDeleteFacilityMutation ,useUpdateFacilityMutation,useGetBookingFacilityQuery,useCheckAvailabilityQuery, useBookingFacilityMutation, useGetSportsByIdQuery, useCreateFacilityMutation } = baseApi
+export const { useGetSportsQuery,useDeleteBookingMutation,useGetSingleUserBookingsQuery,useDeleteFacilityMutation ,useUpdateFacilityMutation,useGetBookingFacilityQuery,useCheckAvailabilityQuery, useBookingFacilityMutation, useGetSportsByIdQuery, useCreateFacilityMutation } = baseApi

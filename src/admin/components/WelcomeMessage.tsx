@@ -3,8 +3,8 @@ import { useAppSelector } from "@/redux/hooks";
 
 const WelcomeMessage = () => {
     const { name, email } = useAppSelector((store) => store.user.user)
-    const user = useAppSelector((store) => store.user.user)
-    console.log(user, 'uuuuu');
+    // const user = useAppSelector((store) => store.user.user)
+    // console.log(user, 'uuuuu');
 
     console.log('name');
 

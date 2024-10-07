@@ -31,6 +31,10 @@ const items: MenuProps["items"] = [
         key: '7',
         label: <NavLink to="/admin/create-admin">Create admin</NavLink>,
       },
+      {
+        key: '8',
+        label: <NavLink to="/admin/my-bookings">my-bookings</NavLink>,
+      },
     ]
   },
   {
@@ -66,7 +70,7 @@ const AdminLayout = () => {
 
             <Header style={{ padding: 0, background: "#234e30" }}>
               
-              <h1 className='text-3xl text-bold text-white p-2'>{role === 'admin' ? 'Admin Dashboard' : ''}</h1>
+              <h1 className='text-3xl text-bold text-white p-2'>{role === 'admin' ? 'Admin Dashboard' : 'User Dashboard'}</h1>
             </Header>
             <Button
               type="text"

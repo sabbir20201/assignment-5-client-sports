@@ -28,7 +28,7 @@ const Login = () => {
         console.log('after login user');
         
         const token = user?.data.token;
-        console.log('main user =>',user?.data?.data.address);
+        console.log('main user =>',user?.data);
         
         console.log('token', token);
     
