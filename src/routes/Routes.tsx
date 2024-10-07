@@ -14,6 +14,7 @@ import Home from "@/pages/home/Home";
 import Login from "@/pages/login/Login";
 import Register from "@/pages/register/Register";
 import { createBrowserRouter } from "react-router-dom";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const router = createBrowserRouter([
     {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/admin",
-        element:  <AdminLayout></AdminLayout>,
+        element: (<ProtectedRoutes><AdminLayout></AdminLayout></ProtectedRoutes> ),
         children: [
             {
                index: true,

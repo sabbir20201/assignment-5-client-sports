@@ -6,44 +6,63 @@ import Sider from 'antd/es/layout/Sider';
 import { Content, Header } from 'antd/es/layout/layout';
 import { useAppSelector } from '@/redux/hooks';
 
-const items: MenuProps["items"] = [
-  {
-    key: '2',
-    label: <NavLink to="/admin">Dashboard</NavLink>,
-  },
-  {
-    key: '3',
-    label: "Product Management",
-    children: [
-      {
-        key: '4',
-        label: <NavLink to="/admin/create-facility">Create a Product</NavLink>,
-      },
-      {
-        key: '5',
-        label: <NavLink to="/admin/get-facility">Get all Product</NavLink>,
-      },
-      {
-        key: '6',
-        label: <NavLink to="/admin/get-all-bookings">Get all Bookings</NavLink>,
-      },
-      {
-        key: '7',
-        label: <NavLink to="/admin/create-admin">Create admin</NavLink>,
-      },
-      {
-        key: '8',
-        label: <NavLink to="/admin/my-bookings">my-bookings</NavLink>,
-      },
-    ]
-  },
-  {
-    key: '11',
-    label: <NavLink to="/">Home</NavLink>,
-  },
-]
+// const user = useAppSelector((store) => store.user.user)
+// console.log(user, 'uuuuu');
+// if (!user) {
+//     return <p> </p>
+// }
+// console.log('name');
+// const { name, email , role} = user
+
 const AdminLayout = () => {
-  // const { role } = useAppSelector((store) => store.user.user)
+  const items: MenuProps["items"] = [
+
+    {
+      key: '2',
+      label: <NavLink to="/admin">Dashboard</NavLink>,
+    },
+    {
+      key: '3',
+      label: "Product Management",
+      children: [
+        {
+          key: '4',
+          label: <NavLink to="/admin/create-facility">Create a Product</NavLink>,
+        },
+        {
+          key: '5',
+          label: <NavLink to="/admin/get-facility">Get all Product</NavLink>,
+        },
+        {
+          key: '6',
+          label: <NavLink to="/admin/get-all-bookings">Get all Bookings</NavLink>,
+        },
+        {
+          key: '7',
+          label: <NavLink to="/admin/create-admin">Create admin</NavLink>,
+        },
+        {
+          key: '8',
+          label: <NavLink to="/admin/my-bookings">my-bookings</NavLink>,
+        },
+     
+      ]
+    },
+    {
+      key: '11',
+      label: <NavLink to="/">Home</NavLink>,
+    },
+  ]
+
+// const user = useAppSelector((store) => store.user.user)
+
+// if (!user) {
+//     return <p> </p>
+// }
+
+// const { role} = user
+// const items = role === 'admin' ? itemsAdmin : itemsUser
+
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
