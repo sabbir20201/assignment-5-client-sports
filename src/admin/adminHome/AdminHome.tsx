@@ -1,8 +1,9 @@
+import WelcomeMessage from "../components/WelcomeMessage";
 
 const AdminHome = () => {
     return (
         <div>
-            admin homevv
+          <WelcomeMessage></WelcomeMessage>
  
         </div>
     );

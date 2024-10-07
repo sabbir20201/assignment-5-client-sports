@@ -4,6 +4,9 @@ type User = {
     _id: string;
     email: string;
     role: string;
+    name: string;
+    address: string;
+    phone: string;
 }
 type UserAndToken = {
     token: string;
@@ -15,7 +18,10 @@ const initialState : UserAndToken= {
     user: {
         _id: '',
         email: '',
-        role: ''
+        role: '',
+        phone: '',
+        name: '',
+        address: '',
     }
 }
 const userSlice = createSlice({

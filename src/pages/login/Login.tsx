@@ -28,9 +28,9 @@ const Login = () => {
         console.log('after login user');
         
         const token = user?.data.token;
-        // const token = user?.token;
-        console.log('token', token);
+        console.log('main user =>',user?.data?.data.address);
         
+        console.log('token', token);
     
         if(token){
             dispatch(setToken(token))
@@ -38,9 +38,12 @@ const Login = () => {
             console.log('decode', decoded);
             
             dispatch(setUser({
-                _id: decoded._id,
+                _id:decoded._id,
+                name: user?.data?.data.name,
                 email: decoded.email,
-                role: decoded.role
+                phone: user?.data?.data.phone,
+                role: decoded.role,
+                address: user?.data?.data.address,
             }))
         }
 
@@ -65,7 +68,7 @@ const Login = () => {
                         <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
                             Email
                         </span>
-                        <input type="email"  name="email" required value={email} onChange={(e) => dispatch(setEmail(e.target.value))} className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
+                        <input type="email" name="email" required value={email} onChange={(e) => dispatch(setEmail(e.target.value))} className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
                     </label>
                     <label className="block pb-2">
                         <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">

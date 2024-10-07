@@ -1,4 +1,5 @@
 import AdminHome from "@/admin/adminHome/AdminHome";
+import CreateAminAccount from "@/admin/adminHome/CreateAminAccount";
 import CreateFacility from "@/admin/manageFacility/CreateFacility";
 import GetAllBookings from "@/admin/manageFacility/GetAllBookings";
 import GetAllFacility from "@/admin/manageFacility/GetAllFacility";
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path: "get-all-bookings",
                 element: <GetAllBookings></GetAllBookings>,
+            },
+            {
+                path: "create-admin",
+                element: <CreateAminAccount></CreateAminAccount>,
             }
         ]
     }

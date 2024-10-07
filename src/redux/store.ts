@@ -24,9 +24,7 @@ export const store = configureStore({
     booking: bookingReducer,
     }, 
     middleware: (getDefaultMiddleware) => 
-        getDefaultMiddleware({  serializableCheck: {
-            ignoredActions: ['persist/PERSIST'],
-        },}).concat(baseApi.middleware)
+        getDefaultMiddleware({  serializableCheck: false}).concat(baseApi.middleware)
     
 })
 

@@ -61,7 +61,7 @@ const CheckFacility = () => {
             endTime: endTime,
         }
         const result = await bookingFacility(facilityPayload)
-        console.log('result after booking', result);
+        console.log('result after booking', result?.data);
 
     }
 
