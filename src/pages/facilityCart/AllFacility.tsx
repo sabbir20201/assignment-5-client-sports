@@ -17,7 +17,7 @@ const AllFacility = () => {
     
     return (
         <div className="py-10">
-            <h1 className="text-4xl font-bold text-center text-[#1961e4] py-3"> All facility</h1>
+            <h1 className="text-4xl font-bold text-center py-3"> All <span className="text-[#1961e4]">Facility</span> </h1>
             <p className="text-base text-slate-600 text-center pb-5 px-6"> we provide top-notch football facilities designed to cater to players of all levels. Whether you're a professional athlete or just playing for fun, our well-maintained pitches offer the perfect surface for a great game</p>
             <div>
 

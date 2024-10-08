@@ -15,7 +15,7 @@ const Hero = () => {
                             <h1 className="text-5xl font-bold text-[#1961e4] "> Hello Fellow People</h1>
                             <p>You can't Win Unless you Learn How to Lose</p>
                             <p>Benjamin Foster / Soccer Player</p>
-                            <Button variant="outline" className="text-3xl font-bold p-2">BOOK NOW</Button>
+                            <Button  variant="outline" className="text-3xl font-bold text-[#1961e4] p-2">BOOK NOW</Button>
             
                         </div>
                      </div>

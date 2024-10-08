@@ -4,7 +4,7 @@ import { useLoginMutation } from "@/redux/api/auth/authApi";
 import { setEmail, setPassword } from "@/redux/feature/LoignSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import React from "react";
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import { jwtDecode } from "jwt-decode";
 import { setToken, setUser } from "@/redux/feature/UserSlice";
 import { useNavigate } from "react-router-dom";
@@ -45,6 +45,8 @@ const Login = () => {
                 role: decoded.role,
                 address: user?.data?.data.address,
             }))
+            toast.success(user?.data.message, { duration: 2000 })
+                   
         }
 
     }
@@ -55,7 +57,7 @@ const Login = () => {
     return (
         <div className="gap-5 py-6 h-svh m-auto justify-center items-center">
 
-            <div><Toaster />   </div>
+            <div><Toaster position="top-right" />   </div>
 
             <div className="max-w-3xl mx-auto grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 border ">
 

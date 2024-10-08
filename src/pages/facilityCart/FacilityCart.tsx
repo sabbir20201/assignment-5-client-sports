@@ -19,9 +19,9 @@ const FacilityCart = ({facility}:{facility: TFacility}) => {
                 </figure>
                 <div className="card-body items-center text-center p-2">
                     <h2 className="card-title">{facility?.name}</h2>
-                    <h2 className="">{facility?.description ? facility.description.split(' ').slice(0,4).join(' ') + '...': ''}</h2>
-                  
-                    <p className="font-semibold">$ {facility.pricePerHour} | <span className="text-[#1961e4]">discount : 10%   </span></p>
+                    {/* <h2 className="">{facility?.description ? facility.description.split(' ').slice(0,4).join(' ') + '...': ''}</h2> */}
+                    {/* <span className="text-[#1961e4]">discount : 10%   </span> */}
+                    <p className="font-semibold"> Price per hour : {facility.pricePerHour} BD  </p>
                     
                     <div className="card-actions">
                    

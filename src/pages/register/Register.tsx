@@ -21,21 +21,24 @@ const Register = () => {
             const response = await signUp({ name, email, password, role: 'user', phone, address })
             console.log('result after create', response);
             if (response?.data?.data?._id) {
-                toast.success(response?.data?.message, { duration: 3000 })
-                navigate('/login')
-            }else if(response?.error){
-                toast.error( response?.error?.data?.message, { duration: 3000 })
+                await toast.success(response?.data?.message, { duration: 7000 })
+                
+                setTimeout(()=>{
+                    navigate('/login')
+                }, 3000)
+            } else if (response?.error) {
+                toast.error(response?.error?.data?.message, { duration: 3000 })
             }
         } catch (error) {
             console.log(error);
-            
+
         }
     }
 
     return (
         <div>
             <div><Toaster position="top-right"
-              reverseOrder={true}
+                reverseOrder={true}
             /></div>
             <div className="gap-5 py-6 m-auto justify-center items-center">
                 <div className="max-w-3xl mx-auto grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 border ">
