@@ -6,7 +6,7 @@ import { MdHelp } from "react-icons/md";
 const ContactDetails = () => {
     return (
         <div className="grid lg:grid-cols-4 md:grid-cols-2 py-10 grid-cols-1 gap-5">
-            <div className=" cursor-pointer hover:shadow-lg transition transform duration-300 ease-in-out">
+            <div className=" cursor-pointer overflow-hidden hover:shadow-lg transition transform duration-300 ease-in-out">
                 <div className="card bg-base-100 shadow-sm border rounded hover:shadow-2xl hover:scale-105 transition-transform transform duration-30 ease-out">
                     <figure className="pt-3">
                     <MdEmail className="text-sky-900" size={40}  />
@@ -20,7 +20,7 @@ const ContactDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className=" cursor-pointer hover:shadow-lg transition transform duration-300 ease-in-out">
+            <div className="overflow-hidden cursor-pointer hover:shadow-lg transition transform duration-300 ease-in-out">
                 <div className="card bg-base-100 shadow-sm border rounded hover:shadow-2xl hover:scale-105 transition-transform transform duration-30 ease-out">
                 <figure className="pt-3">
                     <FaPhoneVolume className="text-sky-900" size={40} />
@@ -34,7 +34,7 @@ const ContactDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className=" cursor-pointer hover:shadow-lg transition transform duration-300 ease-in-out">
+            <div className="overflow-hidden cursor-pointer hover:shadow-lg transition transform duration-300 ease-in-out">
                 <div className="card bg-base-100 shadow-sm border rounded hover:shadow-2xl hover:scale-105 transition-transform transform duration-30 ease-out">
                     <figure className="pt-3">
                     <IoChatbubbleEllipsesSharp className="text-sky-900" size={40} />
@@ -48,7 +48,7 @@ const ContactDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className=" cursor-pointer hover:shadow-lg transition transform duration-300 ease-in-out">
+            <div className="overflow-hidden cursor-pointer hover:shadow-lg transition transform duration-300 ease-in-out">
                 <div className="card bg-base-100 shadow-sm border rounded hover:shadow-2xl hover:scale-105 transition-transform transform duration-30 ease-out">
                     <figure className="pt-3">
                     <MdHelp className="text-sky-900" size={40} />

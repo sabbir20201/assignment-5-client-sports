@@ -82,7 +82,7 @@ const AdminLayout = () => {
           {/* bg-[#8ac0e4] */}
             <Header style={{ padding: 0, background: "#8ac0e4" , display: "flex", justifyContent: "space-around"}}>
               <div>
-              <h1 className='text-3xl text-bold p-2 uppercase text-sky-900 font-bold'> {role} dashboard</h1>
+              <h1 className='lg:text-3xl text-bold p-2 uppercase text-sky-900 font-bold'> {role} dashboard</h1>
 
               </div>
               <div>

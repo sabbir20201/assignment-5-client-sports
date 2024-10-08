@@ -25,6 +25,7 @@ const Login = () => {
         const user = await login({ email, password })
         const token = user?.data.token;
 
+
         if(token){
             dispatch(setToken(token))
             const decoded = jwtDecode<TDecodedToken>(user?.data.token);

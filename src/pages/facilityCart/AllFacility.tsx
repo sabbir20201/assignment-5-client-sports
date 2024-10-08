@@ -12,7 +12,8 @@ const AllFacility = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [minPrice, setMinPrice] = useState(0)
     const [maxPrice, setMaxPrice] = useState(Infinity)
-    const location = useLocation()
+    const location = useLocation();
+    const [showItem, setShowItem] = useState(4)
     if (isLoading) {
         return (
             <p><AiOutlineLoading3Quarters /></p>
@@ -25,7 +26,9 @@ const AllFacility = () => {
         const matchedPrice = facility.pricePerHour >= minPrice && facility.pricePerHour <= maxPrice;
         return matchedSearch && matchedPrice && !facility.isDeleted;
     })
-    
+    const handleShowItem = () => {
+        setShowItem(prev => prev + 4)
+    }
     return (
         <div className="py-10">
             <h1 className="text-4xl font-bold text-center py-3"> All <span className="text-[#1961e4]">Facility</span> </h1>
@@ -55,10 +58,24 @@ const AllFacility = () => {
             <div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 overflow-hidden gap-5 lg:mx-0 ">
                     {
-                        filteredFacility?.slice(0,4).map((facility: TFacility) => <FacilityCart key={facility?._id} facility={facility} />)
+                        filteredFacility?.slice(0,showItem).map((facility: TFacility) => <FacilityCart key={facility?._id} facility={facility} />)
                     }
                 </div>
-                <Button onClick={()=> navigate("/allFacility")}>show more</Button>
+                {
+            location.pathname !== "/allFacility" ? <Button className="bg-[#4a70b8]" onClick={()=> navigate("/allFacility")}>show more</Button> : "" 
+          }
+              
+                <div className="grid justify-center mt-3">
+                {
+                    location.pathname !== "/" && (
+                        filteredFacility?.length > showItem && (
+                            <Button className="bg-[#15351e]" onClick={handleShowItem}>Show More</Button>
+
+                        )
+                    )
+                }
+            </div>
+                {/* <Button className="bg-[#4a70b8]" onClick={()=> navigate("/allFacility")}>show more</Button> */}
             </div>
         </div>
     );

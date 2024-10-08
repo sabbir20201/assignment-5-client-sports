@@ -35,10 +35,10 @@ export const baseApi = createApi({
       })
     }),
     checkAvailability: builder.query({
-      query: (date) => ({
+      query: ({date, facilityId }) => ({
         method: "GET",
         url: `/check-availability`,
-        params: { date },
+        params: { date, facility: facilityId  },
       })
     }),
     getSingleUserBookings: builder.query({
