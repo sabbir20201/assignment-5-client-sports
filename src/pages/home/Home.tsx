@@ -12,8 +12,6 @@ const Home = () => {
             <Hero></Hero>
             <AllFacility></AllFacility>
             <Gallery></Gallery>
-
-
         </div>
     );
 };

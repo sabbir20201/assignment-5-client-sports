@@ -21,13 +21,7 @@ const HistoryAndMileStone = () => {
                         <img src="https://template-kit.evonicmedia.com/layout87/wp-content/uploads/2024/09/about-us-6.jpg" alt="" />
                     </div>
                 </div>
-
-
-
-
             </div>
-
-
         </div>
 
     );

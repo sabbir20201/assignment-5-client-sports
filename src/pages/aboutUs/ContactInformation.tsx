@@ -12,9 +12,6 @@ const ContactInformation = () => {
                 <p>Email :onlinesportsgmail.com</p>
             </div>
             </div>
-       
-
-
         </div>
     );
 };

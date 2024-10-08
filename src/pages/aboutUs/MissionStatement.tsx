@@ -21,14 +21,10 @@ const MissionStatement = () => {
                             <h1 className="text-3xl font-semibold py-2">Our Mission</h1>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum, quas?</p>
                         </div>
-                   
                     </div>
                     <Button className=" bg-[#1961e4] my-5 w-full">Read moer</Button>
-
                 </div>
             </div>
-
-
         </div>
         </div>
     );

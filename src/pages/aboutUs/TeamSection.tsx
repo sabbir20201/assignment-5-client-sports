@@ -1,5 +1,4 @@
 
-
 const TeamSection = () => {
     const data = [
         {
@@ -20,9 +19,6 @@ const TeamSection = () => {
             "age": 35,
             "experienceYears": 10
         }
-
-
-
     ]
     return (
         <div>

@@ -67,11 +67,6 @@ const CreateFacility = () => {
                 <Label htmlFor="pricePerHour">pricePerHour</Label>
                 <Input className="my-1 max-w-96 " type="pricePerHour" {...register("pricePerHour")} />
 
-                {/* <Label htmlFor="category">category</Label>
-                <Input className="my-1 max-w-96 " type="category" {...register("category")} />
-                <Label htmlFor="availableQuantity">availableQuantity</Label>
-                <Input className="my-1 max-w-96 " type="availableQuantity" {...register("availableQuantity")} /> */}
-
                 <Label htmlFor="location">location</Label>
                 <Textarea className="my-1 max-w-96" {...register("location")} />
 

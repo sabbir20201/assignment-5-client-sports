@@ -26,7 +26,7 @@ const CheckFacility = () => {
     const { data, isLoading } = useCheckAvailabilityQuery(formateDate, {
         skip: !fetchData || (!selectedDate && formateDate === ''),
     });
-    // console.log('all data',data?.data);
+   
     
     const handleDate = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedDate(e.target.value);
@@ -96,7 +96,6 @@ const CheckFacility = () => {
                     </div>
                 )}
             </div>
-
 
             <div className="mt-4">
                 <label htmlFor="">start time</label>

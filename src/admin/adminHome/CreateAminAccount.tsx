@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useSignUpMutation } from "@/redux/api/auth/authApi";
 import { setAddress, setEmail, setName, setPassword, setPhone} from "@/redux/feature/registerSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 
 const CreateAminAccount = () => {
     const dispatch = useAppDispatch();
@@ -13,8 +13,16 @@ const CreateAminAccount = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log('input data', { name, email, password, phone, address });
-        const user = await signUp({ name, email, password, role: 'admin', phone, address })
-        console.log('result after create', user);
+        const response = await signUp({ name, email, password, role: 'admin', phone, address })
+        if (response?.data?.data?._id) {
+            toast.success(response?.data?.message, { duration: 3000 })
+
+        } else if (response?.error) {
+            toast.error('something went wrong', { duration: 3000 })
+            // toast.error(response?.error?.data?.message, { duration: 3000 })
+        }
+        
+  
     }
 
     return (

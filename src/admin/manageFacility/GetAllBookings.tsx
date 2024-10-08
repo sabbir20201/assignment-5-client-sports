@@ -1,6 +1,4 @@
 import { useGetBookingFacilityQuery } from "@/redux/api/baseApi";
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 import { TFacility } from "@/pages/facilityCart/facilityType";
 
 export type TBooking = {
@@ -14,17 +12,11 @@ export type TBooking = {
     isBooked: 'confirmed'| 'canceled';
 }
 
-
 const GetAllBookings = () => {
-    const { data, isLoading } = useGetBookingFacilityQuery({})
-
+    const { data, isLoading } = useGetBookingFacilityQuery('')
     if (isLoading) {
         return <p>loading...</p>
     }
-    console.log('all bookings', data?.data);
-    console.log('all bookings', data?.data?.facility);
-
-
     return (
         <div>
             <h1>All bookings facility</h1>

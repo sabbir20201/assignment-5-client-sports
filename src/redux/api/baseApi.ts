@@ -83,5 +83,4 @@ export const baseApi = createApi({
   }),
 })
 
-
 export const { useGetSportsQuery,useDeleteBookingMutation,useGetSingleUserBookingsQuery,useDeleteFacilityMutation ,useUpdateFacilityMutation,useGetBookingFacilityQuery,useCheckAvailabilityQuery, useBookingFacilityMutation, useGetSportsByIdQuery, useCreateFacilityMutation } = baseApi

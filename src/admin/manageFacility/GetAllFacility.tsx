@@ -6,9 +6,6 @@ import toast, { Toaster } from "react-hot-toast";
 import UpdateFacility from "./UpdateFacility";
 
 
-
-
-
 const GetAllFacility = () => {
     const [deleteFacility] = useDeleteFacilityMutation({})
 

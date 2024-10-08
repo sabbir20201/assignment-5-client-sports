@@ -1,51 +1,53 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined, } from '@ant-design/icons';
 import { Button, Layout, Menu, MenuProps, theme } from 'antd';
 import { NavLink, Outlet } from 'react-router-dom';
 import Sider from 'antd/es/layout/Sider';
 import { Content, Header } from 'antd/es/layout/layout';
-import { useAppSelector } from '@/redux/hooks';
-
-// const user = useAppSelector((store) => store.user.user)
-// console.log(user, 'uuuuu');
-// if (!user) {
-//     return <p> </p>
-// }
-// console.log('name');
-// const { name, email , role} = user
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { logOut } from '@/redux/feature/UserSlice';
 
 const AdminLayout = () => {
-  const items: MenuProps["items"] = [
+  const dispatch = useAppDispatch()
+  const handleLogOut = () => {
+    dispatch(logOut())
+  }
+  const user = useAppSelector((store) => store.user?.user)
 
+  if (!user) {
+      return <p> </p>
+  }
+  const { role } = user
+  const items: MenuProps["items"] = [
     {
       key: '2',
-      label: <NavLink to="/admin">Dashboard</NavLink>,
+      label: <NavLink to="/dashboard">Dashboard</NavLink>,
     },
     {
       key: '3',
-      label: "Product Management",
+      label: "Facility Management",
       children: [
-        {
+        ...(role === 'admin' ? [ {
           key: '4',
-          label: <NavLink to="/admin/create-facility">Create a Product</NavLink>,
+          label: <NavLink to="/dashboard/admin/create-facility">Create a Facility</NavLink>,
         },
         {
           key: '5',
-          label: <NavLink to="/admin/get-facility">Get all Product</NavLink>,
+          label: <NavLink to="/dashboard/admin/get-facility">Get all Facility</NavLink>,
         },
         {
           key: '6',
-          label: <NavLink to="/admin/get-all-bookings">Get all Bookings</NavLink>,
+          label: <NavLink to="/dashboard/admin/get-all-bookings">Get all Bookings</NavLink>,
         },
         {
           key: '7',
-          label: <NavLink to="/admin/create-admin">Create admin</NavLink>,
-        },
-        {
+          label: <NavLink to="/dashboard/admin/create-admin">Create admin</NavLink>,
+        },] : [ {
           key: '8',
-          label: <NavLink to="/admin/my-bookings">my-bookings</NavLink>,
-        },
-     
+          label: <NavLink to="/dashboard/user/my-bookings">my-bookings</NavLink>,
+        }] ),
+
       ]
     },
     {
@@ -53,15 +55,6 @@ const AdminLayout = () => {
       label: <NavLink to="/">Home</NavLink>,
     },
   ]
-
-// const user = useAppSelector((store) => store.user.user)
-
-// if (!user) {
-//     return <p> </p>
-// }
-
-// const { role} = user
-// const items = role === 'admin' ? itemsAdmin : itemsUser
 
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -86,10 +79,15 @@ const AdminLayout = () => {
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
           </Sider>
           <Layout>
+          {/* bg-[#8ac0e4] */}
+            <Header style={{ padding: 0, background: "#8ac0e4" , display: "flex", justifyContent: "space-around"}}>
+              <div>
+              <h1 className='text-3xl text-bold p-2 uppercase text-sky-900 font-bold'> {role} dashboard</h1>
 
-            <Header style={{ padding: 0, background: "#234e30" }}>
-              
-              <h1 className='text-3xl text-bold text-white p-2'> dashboard</h1>
+              </div>
+              <div>
+                <Button onClick={handleLogOut} className='font-bold'>Log Out</Button>
+              </div>
             </Header>
             <Button
               type="text"
@@ -110,7 +108,6 @@ const AdminLayout = () => {
                 }}
               >
                 {/* the main content  here */}
-
                 <Outlet></Outlet>
               </div>
             </Content>

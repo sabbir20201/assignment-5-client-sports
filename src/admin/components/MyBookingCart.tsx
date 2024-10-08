@@ -1,17 +1,22 @@
 
+import { TSingleFacility } from "./MyBookings";
 
-const MyBookingCart = ({item}) => {
-    const {startTime, endTime, data, payableAmount, description} = item
-    const {name} = item.facility
-console.log(item, 'from my cart');
-console.log(name);
+
+const MyBookingCart = ({ item }: { item: TSingleFacility }) => {
+    const { startTime, endTime, data, payableAmount, description } = item
+
 
 
     return (
         <div>
-              <div>
-            
-        </div>
+            <div>
+                <h1>startTime: {startTime}</h1>
+                <h1> endTime: {endTime}</h1>
+                <h1> data: {data}</h1>
+                <h1> payableAmount: {payableAmount}</h1>
+                <h1> description : {description}</h1>
+            </div>
+
         </div>
     );
 };

@@ -7,7 +7,6 @@ import { useGetSportsQuery, useUpdateFacilityMutation } from "@/redux/api/baseAp
 import { useForm, SubmitHandler } from "react-hook-form"
 import { toast, Toaster } from 'react-hot-toast'
 
-
 const UpdateFacility = ({id, item}: {id: string, item: TFacility}) => {
     const { register, handleSubmit, reset } = useForm<TFacility>()
     const [UpdateFacility] = useUpdateFacilityMutation()

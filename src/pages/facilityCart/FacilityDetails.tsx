@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { useGetSportsByIdQuery } from "@/redux/api/baseApi";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 const FacilityDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -11,14 +10,12 @@ const FacilityDetails = () => {
     if (isLoading) {
         return <p>Loading</p>
     }
-    
     const { data: singleFacility } = data
     const handleBook = () => {
         navigate(`/check-availability/${singleFacility._id}`)
     }
     return (
         <div>
-
             <div className="card lg:card-side bg-base-100 shadow-sm border rounded-sm">
                 <figure className="px-3 py-3 max-w-lg md:w-full">
                     <img

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useSignUpMutation } from "@/redux/api/auth/authApi";
 import { setAddress, setEmail, setName, setPassword, setPhone } from "@/redux/feature/registerSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+
 import toast, { Toaster } from 'react-hot-toast'
 import { useNavigate } from "react-router-dom";
 
@@ -27,11 +28,10 @@ const Register = () => {
                     navigate('/login')
                 }, 3000)
             } else if (response?.error) {
-                toast.error(response?.error?.data?.message, { duration: 3000 })
+                toast.error('something went wrong', { duration: 3000 })
             }
         } catch (error) {
             console.log(error);
-
         }
     }
 
@@ -80,13 +80,13 @@ const Register = () => {
 
                     </form>
                     <div className="border">
-                        <img className="h-full object-cover object-center" src="https://cdn.pixabay.com/photo/2021/07/21/20/11/beach-volleyball-6483905_960_720.jpg" alt="" />
+                        <img className="h-full object-cover object-center" src="https://media.istockphoto.com/id/1463013729/photo/online-registration-form-for-modish-form-filling.jpg?s=612x612&w=0&k=20&c=Fnx06haU4IHYLcRpy9Po_TBknvBqVjicGuUWkGu8e6Y=" alt="" />
                     </div>
                 </div>
 
             </div>
         </div>
-
+                                                                                                                             
     );
 };
 

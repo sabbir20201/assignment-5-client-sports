@@ -18,11 +18,11 @@ const Navbar = () => {
   }
   const menuItems = [
     { label: "Home", path: "/" },
+    { label: "allFacility", path: "/allFacility" },
     { label: "register", path: "/register" },
-    { label: "login", path: "/login" },
     { label: "Contact us", path: "/contact-us" },
     { label: "About ", path: "/about-us" },
-    ...(email ? [{ label: 'Dashboard', path: '/admin' }] : []),
+    ...(email ? [{ label: 'Dashboard', path: '/dashboard' }] : []),
 
   ]
 
