@@ -60,9 +60,12 @@ const CheckFacility = () => {
             startTime: startTime,
             endTime: endTime,
         }
-        const result = await bookingFacility(facilityPayload)
-        console.log('result after booking', result?.data);
-
+        const res = await bookingFacility(facilityPayload).unwrap()
+        if(res.success){
+            window.location.href = res?.data?.payment_url
+        }
+        console.log('result after booking', res)
+        console.log('result after booking success', res.success)
     }
 
     return (
@@ -116,107 +119,3 @@ const CheckFacility = () => {
 };
 export default CheckFacility;
 
-// import { useState } from "react";
-// import moment from "moment";
-// import { useBookingFacilityMutation, useCheckAvailabilityQuery } from "@/redux/api/baseApi";
-// import { useParams } from "react-router-dom";
-// import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-// import { addBooking } from "@/redux/feature/BookingPayloadSlice";
-
-// const CheckFacility = () => {
-//     const { id: facilityId } = useParams();
-//     const [bookingFacility] = useBookingFacilityMutation();
-
-//     const [selectedDate, setSelectedDate] = useState('');
-//     const [fetchData, setFetchData] = useState(false);
-//     const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
-//     const dispatch = useAppDispatch();
-//     const { _id, date, startTime, endTime } = useAppSelector((store) => store.booking);
-//     const token = useAppSelector((store) => store.user.token);
-//     const formattedDate = selectedDate ? moment(selectedDate).format('YYYY-MM-DD') : '';
-
-//     const { data, isLoading, error } = useCheckAvailabilityQuery(formattedDate, {
-//         skip: !fetchData || (!selectedDate && formattedDate === ''),
-//     });
-
-//     // Error Handling
-//     if (error) {
-//         return <p>Error fetching availability. Please try again.</p>;
-//     }
-
-//     const handleDate = (e) => {
-//         setSelectedDate(e.target.value);
-//     };
-
-//     const handleCheckAvailability = () => {
-//         if (!selectedDate) {
-//             setSelectedDate(moment().format('YYYY-MM-DD'));
-//         }
-//         setFetchData(true);
-//     };
-
-//     const handleTimeSlotClick = (slot) => {
-//         setSelectedTimeSlot(slot);
-//         dispatch(addBooking({
-//             _id: facilityId,
-//             date: formattedDate,
-//             startTime: slot.startTime,
-//             endTime: slot.endTime,
-//         }));
-//     };
-
-//     const handlePay = async () => {
-//         const facilityPayload = {
-//             _id: facilityId,
-//             date: date,
-//             startTime: startTime,
-//             endTime: endTime,
-//         };
-//         const result = await bookingFacility(facilityPayload);
-//         console.log('result after booking', result);
-//     };
-
-//     return (
-//         <div>
-//             <h1>Check Availability</h1>
-
-//             <div>
-//                 <input type="date" value={selectedDate} onChange={handleDate} id="date" />
-//                 <Button disabled={isLoading} onClick={handleCheckAvailability}>
-//                     {isLoading ? 'Checking...' : 'Check Availability'} {/* Corrected typo */}
-//                 </Button>
-//             </div>
-
-//             <div>
-//                 {isLoading ? (
-//              ''
-//                 ) : (
-//                     <div className="mt-4">
-//                         {data?.data?.map((slot, index) => (
-//                             <div key={index}
-//                                 className="text-gray-700 border border-gray-300 rounded-lg p-2 bg-gray-50 cursor-pointer hover:bg-indigo-100 mt-1"
-//                                 onClick={() => handleTimeSlotClick(slot)}
-//                             >
-//                                 {`${slot.startTime} - ${slot.endTime}`}
-//                             </div>
-//                         ))}
-//                     </div>
-//                 )}
-//             </div>
-
-//             <div className="mt-4">
-//                 <label htmlFor="start-time">Start Time</label> {/* Associated label */}
-//                 <input id="start-time" type="text" readOnly className="text-gray-700 border w-full border-gray-300 rounded-lg p-2 bg-gray-50" value={selectedTimeSlot ? selectedTimeSlot.startTime : 'No selected slot'} />
-                
-//                 <label htmlFor="end-time">End Time</label> {/* Associated label */}
-//                 <input id="end-time" type="text" readOnly className="text-gray-700 border w-full border-gray-300 rounded-lg p-2 bg-gray-50" value={selectedTimeSlot ? selectedTimeSlot.endTime : 'No slot selected'} />
-                
-//                 <Button onClick={() => handlePay()} disabled={!selectedTimeSlot}>
-//                     <p>Proceed to Pay</p>
-//                 </Button>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default CheckFacility;

@@ -14,7 +14,7 @@ const FacilityDetails = () => {
     
     const { data: singleFacility } = data
     const handleBook = () => {
-        navigate(`/book/${singleFacility._id}`)
+        navigate(`/check-availability/${singleFacility._id}`)
     }
     return (
         <div>

@@ -15,6 +15,8 @@ import Login from "@/pages/login/Login";
 import Register from "@/pages/register/Register";
 import { createBrowserRouter } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
+import AboutUsPage from "@/pages/aboutUs/AboutUsPage";
+import ContactUsPage from "@/pages/contactUs/ContactUsPage";
 
 const router = createBrowserRouter([
     {
@@ -26,13 +28,13 @@ const router = createBrowserRouter([
                 path: "/",
                 element:<Home></Home>
             },
+            // {
+            //     path: "/cart",
+            //     element:<Cart></Cart>
+            // },
             {
-                path: "/cart",
-                element:<Cart></Cart>
-            },
-            {
-                path: "/book/:id",
-                element:<CheckFacility></CheckFacility>
+                path: "/check-availability/:id",
+                element:(<ProtectedRoutes><CheckFacility></CheckFacility></ProtectedRoutes>)
             },
             {
                 path: "/register",
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
             {
                 path: "/facility-details/:id",
                 element:<FacilityDetails></FacilityDetails>
+            },
+            {
+                path: "about-us",
+                element:<AboutUsPage></AboutUsPage>
+            },
+            {
+                path: "contact-us",
+                element:<ContactUsPage></ContactUsPage>
             }
         ]
     },

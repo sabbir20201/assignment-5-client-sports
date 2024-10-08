@@ -78,7 +78,7 @@ const Login = () => {
                     </label>
 
                     <Button className="w-full my-1 max-w-96 bg-sky-600" type="submit">Login</Button>
-                    <p>New User? <span onClick={()=> navigate('/register')} className="cursor-pointer text-sky-500 font-bold"> Login Register</span></p>
+                    <p>New User? <span onClick={()=> navigate('/register')} className="cursor-pointer text-sky-500 font-bold"> Please Register</span></p>
                 </form>
                 <div className="border">
                     <img className="h-full object-cover object-center" src="https://cdn.pixabay.com/photo/2021/07/21/20/11/beach-volleyball-6483905_960_720.jpg" alt="" />

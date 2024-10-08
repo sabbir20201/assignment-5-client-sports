@@ -19,8 +19,10 @@ const Navbar = () => {
     { label: "register", path: "/register" },
     { label: "login", path: "/login" },
     // { label: "cart", path: "/cart" },
-    { label: "check-facility-book", path: "/book" },
-    { label: "Dashboard", path: "/admin" }
+
+    { label: "Dashboard", path: "/admin" },
+    { label: "Contact US", path: "/contact-us" },
+    { label: "About US", path: "/about-us" }
  
   ]
 
