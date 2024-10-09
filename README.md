@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project Name: Sports Facility Booking Platform
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Introduction and Project Description
+* this project is Sports Facility Booking Platform . user can view facility details. user can search facility user can booked a facility user can payment
 
-## Expanding the ESLint configuration
+# Features for user
+* user can view facility details
+* user can search facility
+* user can booked a facility
+* user can payment 
+* user can access user dashboard
+* user can see their booked facility 
+* user can cancel their facility and view
+* user can contact with sports office
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+# Features for admin
+* admin can create, update , delete a facility
+* admin can create admin registration
+* admin can view all booking facility
+* admin can booked a facility
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+# List of key features or functionalities.
+* user can check a facility for a specific time slot and booked
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+# Installation Steps
+* Step-by-step instructions on how to install the project.
+* first i installed react using vite and installed some packages.
+* for front-end
+* react,typescript, redux for state management etc.
+* then i created back-end project first
+* doing assignment when i face aby problem i use google for guldens
